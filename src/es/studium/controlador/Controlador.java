@@ -10,6 +10,8 @@ import java.awt.event.WindowListener;
 
 import es.studium.modelo.Modelo;
 import es.studium.vista.MenuPrincipal;
+import es.studium.vista.PartidaNueva;
+import es.studium.vista.Tablero;
 import es.studium.vista.TopTen;
 
 
@@ -20,6 +22,7 @@ public class Controlador implements WindowListener, ActionListener, MouseListene
 	TopTen topTen = new TopTen();
 	PartidaNueva partidaNueva = new PartidaNueva();
 	Tablero tablero;
+	/*Tablero tablero;*/
 	Modelo modelo;
 	int numJugadores;	
 	int turno = 1;
@@ -37,7 +40,7 @@ public class Controlador implements WindowListener, ActionListener, MouseListene
 		topTen.btnVolver.addActionListener(this);
 		partidaNueva.pedirNumeroJugadores.addWindowListener(this);
 		partidaNueva.btnContinuar.addActionListener(this);
-		partidaNueva.pedirNombreJugadores.addWindowListener(this);
+		partidaNueva.pedirNombresJugadores.addWindowListener(this);
 		partidaNueva.btnComenzarPartida.addActionListener(this);
 
 	}
@@ -49,29 +52,66 @@ public class Controlador implements WindowListener, ActionListener, MouseListene
 		{
 			System.exit(0);
 		}
-		else if(botonPulsado.equals(menuPrincipal.btnTopTen)) //top ten
+		else if(botonPulsado.equals(menuPrincipal.btnTopTen)) // Top Ten
 		{
 			topTen.MostrarTopTen();
 			menuPrincipal.setVisible(false);
 		}
-		else if(botonPulsado.equals(topTen.btnVolver)) //top ten
+		else if(botonPulsado.equals(topTen.btnVolver)) // Top Ten
 		{
 			topTen.OcultarTopTen();
 			menuPrincipal.setVisible(true);
 		}
-		else if(botonPulsado.equals(menuPrincipal.btnPartidaNueva)) //Partida Nueva
+		else if(botonPulsado.equals(menuPrincipal.btnPartidaNueva)) // Partida Nueva
 		{
 			partidaNueva.MostrarDialogNumeroJugadores();
 			menuPrincipal.setVisible(false);
 		}
-		else if(botonPulsado.equals(partidaNueva.btnContinuar)) //Partida Nueva
+		else if(botonPulsado.equals(partidaNueva.btnContinuar)) // Partida Nueva
 		{
 			if(!partidaNueva.choNumeroJugadores.getSelectedItem().equals("Elegir número de jugadores..."))
 			{
-				partidaNueva.PrepararDialogNombresJugadores(Integer.parseInt(partidaNueva.choNumeroJugadores));
+				partidaNueva.PrepararDialogNombresJugadores(Integer.parseInt(partidaNueva.choNumeroJugadores.getSelectedItem()));
 			}
 		}
-
+		else if(botonPulsado.equals(partidaNueva.btnComenzarPartida)) // Partida Nueva
+		{
+			numJugadores = Integer.parseInt(partidaNueva.choNumeroJugadores.getSelectedItem());
+			if((numJugadores==4)&&(!partidaNueva.txfNombre1.getText().equals(""))
+					&&(!partidaNueva.txfNombre2.getText().equals(""))
+					&&(!partidaNueva.txfNombre3.getText().equals(""))
+					&&(!partidaNueva.txfNombre4.getText().equals("")))
+			{
+				tablero = new Tablero(4, partidaNueva.txfNombre1.getText(),partidaNueva.txfNombre2.getText(),partidaNueva.txfNombre3.getText(),partidaNueva.txfNombre4.getText());
+				tablero.addWindowListener(this);
+				tablero.addMouseListener(this);
+				tablero.setVisible(true);
+				partidaNueva.setVisible(false);
+			}
+			else if((numJugadores==3)&&(!partidaNueva.txfNombre1.getText().equals(""))
+					&&(!partidaNueva.txfNombre2.getText().equals(""))
+					&&(!partidaNueva.txfNombre3.getText().equals("")))
+			{
+				tablero = new Tablero(3,partidaNueva.txfNombre1.getText(),partidaNueva.txfNombre2.getText(),partidaNueva.txfNombre3.getText(),"");
+				tablero.addWindowListener(this);
+				tablero.addMouseListener(this);
+				tablero.setVisible(true);
+				partidaNueva.setVisible(false);
+			}
+			else if((numJugadores==2)&&(!partidaNueva.txfNombre1.getText().equals(""))
+					&&(!partidaNueva.txfNombre2.getText().equals("")))
+			{
+				tablero = new Tablero(2, partidaNueva.txfNombre1.getText(),partidaNueva.txfNombre2.getText(),"","");
+				tablero.addWindowListener(this);
+				tablero.addMouseListener(this);
+				tablero.setVisible(true);
+				partidaNueva.setVisible(false);
+			}
+			else
+			{
+				partidaNueva.txfNombre1.requestFocus();
+			}
+		}
 	}
 
 	@Override
@@ -93,16 +133,16 @@ public class Controlador implements WindowListener, ActionListener, MouseListene
 			partidaNueva.btnContinuar.removeActionListener(this);
 			partidaNueva.choNumeroJugadores.select(0);
 			partidaNueva.removeAll();
-			partidaNueva.OcultarDialogNombreJugadores();
+			partidaNueva.OcultarDialogNombresJugadores();
 		}
-		else if((tablero!=null)&&(tablero.isActive()))
+		/*else if((tablero!=null)&&(tablero.isActive()))
 		{
 			tablero.removeWindowListener(this);
 			tablero.removeMouseListener(this);
 			tablero.setVisible(false);
-			partidaNueva.OcultarDialogNombreJugadores();
+			partidaNueva.OcultarDialogNombresJugadores();
 			menuPrincipal.setVisible(true);
-		}
+		}*/
 		else 
 		{	
 			System.exit(0);

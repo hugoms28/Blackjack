@@ -12,28 +12,29 @@ import java.awt.TextField;
 public class PartidaNueva extends Frame
 {
 	private static final long serialVersionUID = 1L;
-	Dialog pedirNumeroJugadores = new Dialog(this, "BlackJack: Nueva Partida", true);
-	Dialog pedirNombresJugadores = new Dialog(this, "BlackJack: Nueva Partida", true);
+	public Dialog pedirNumeroJugadores = new Dialog(this, "BlackJack: Nueva Partida", true);
+	public Dialog pedirNombresJugadores = new Dialog(this, "BlackJack: Nueva Partida", true);
 	int numeroJugadores = 0;
 	String[] nombresJugadores = null;
-	Choice choNumeroJugadores = new Choice();
-	Button btnContinuar =new Button("Continuar...");
+	public Choice choNumeroJugadores = new Choice();
+	public Button btnContinuar =new Button("Continuar...");
 	
-	TextField txfNombre1 = new TextField(15);
+	public TextField txfNombre1 = new TextField(15);
 	Label lblEtiqueta1 = new Label("Jugador 1:");
-	TextField txfNombre2 = new TextField(15);
+	public TextField txfNombre2 = new TextField(15);
 	Label lblEtiqueta2 = new Label("Jugador 2:");
-	TextField txfNombre3 = new TextField(15);
+	public TextField txfNombre3 = new TextField(15);
 	Label lblEtiqueta3 = new Label("Jugador 3:");
-	TextField txfNombre4 = new TextField(15);
+	public TextField txfNombre4 = new TextField(15);
 	Label lblEtiqueta4 = new Label("Jugador 4:");
-	Button btnComenzarPartida = new Button("Comenzar Partida");
+	public Button btnComenzarPartida = new Button("Comenzar Partida");
+	public Object pedirNombreJugadores;
 	
 	public PartidaNueva() 
 	{
 		pedirNumeroJugadores.setBackground(Color.RED);
 		pedirNumeroJugadores.setLayout(new FlowLayout());
-		pedirNumeroJugadores.setSize(240,100);
+		pedirNumeroJugadores.setSize(240,200);
 		pedirNumeroJugadores.setLocationRelativeTo(null);
 		pedirNumeroJugadores.setResizable(false);
 		
@@ -59,7 +60,7 @@ public class PartidaNueva extends Frame
 	{
 		pedirNombresJugadores.setBackground(Color.RED);
 		pedirNombresJugadores.setLayout(new FlowLayout());
-		pedirNombresJugadores.setSize(240,100);
+		pedirNombresJugadores.setSize(240,200);
 		pedirNombresJugadores.setLocationRelativeTo(null);
 		pedirNombresJugadores.setResizable(false);
 		
