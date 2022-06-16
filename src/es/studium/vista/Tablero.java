@@ -1,5 +1,6 @@
 package es.studium.vista;
 
+import java.awt.Button;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Frame;
@@ -19,6 +20,7 @@ public class Tablero extends Frame
 	Font fuenteTirada = new Font("Jokerman", Font.BOLD, 24);
 	Font fuenteTurno = new Font("Jokerman", Font.BOLD, 24);
 	Font fuenteJugadores = new Font("Jokerman", Font.BOLD, 22);
+	public Button btnVolver = new Button("Volver");
 
 	int xRoja=100, yRoja=380;
 	int xRosa=95, yRosa=380;

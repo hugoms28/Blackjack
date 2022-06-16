@@ -1,6 +1,5 @@
 package es.studium.controlador;
 
-import java.awt.Button;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -65,13 +64,17 @@ public class Controlador implements WindowListener, ActionListener, MouseListene
 		else if(botonPulsado.equals(menuPrincipal.btnPartidaNueva)) // Partida Nueva
 		{
 			partidaNueva.MostrarDialogNumeroJugadores();
-			menuPrincipal.setVisible(false);
+			menuPrincipal.setVisible(true);
 		}
 		else if(botonPulsado.equals(partidaNueva.btnContinuar)) // Partida Nueva
 		{
 			if(!partidaNueva.choNumeroJugadores.getSelectedItem().equals("Elegir número de jugadores..."))
 			{
 				partidaNueva.PrepararDialogNombresJugadores(Integer.parseInt(partidaNueva.choNumeroJugadores.getSelectedItem()));
+			}else
+			{
+				System.out.println("Número no valido, elige otro");
+				partidaNueva.MostrarDialogNumeroJugadores();
 			}
 		}
 		else if(botonPulsado.equals(partidaNueva.btnComenzarPartida)) // Partida Nueva
@@ -129,20 +132,22 @@ public class Controlador implements WindowListener, ActionListener, MouseListene
 		}
 		else if(partidaNueva.pedirNumeroJugadores.isActive())
 		{
-			partidaNueva.pedirNumeroJugadores.removeWindowListener(this);
-			partidaNueva.btnContinuar.removeActionListener(this);
-			partidaNueva.choNumeroJugadores.select(0);
-			partidaNueva.removeAll();
-			partidaNueva.OcultarDialogNombresJugadores();
+			partidaNueva.setVisible(false);
+			menuPrincipal.setVisible(true);
 		}
-		/*else if((tablero!=null)&&(tablero.isActive()))
+		else if(partidaNueva.pedirNombresJugadores.isActive())
+		{
+			partidaNueva.OcultarDialogNombresJugadores();
+			menuPrincipal.setVisible(true);
+		}
+		else if((tablero!=null)&&(tablero.isActive()))
 		{
 			tablero.removeWindowListener(this);
 			tablero.removeMouseListener(this);
 			tablero.setVisible(false);
 			partidaNueva.OcultarDialogNombresJugadores();
 			menuPrincipal.setVisible(true);
-		}*/
+		}
 		else 
 		{	
 			System.exit(0);
