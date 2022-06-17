@@ -36,9 +36,15 @@ public class Tablero extends Frame
 		jugador4 = j4;
 		herramientas = getToolkit();
 		tablero = herramientas.getImage("tablero600x400.jpg");
+<<<<<<< HEAD
 		setTitle("Jugando a Serpientes y Escaleras"); // Tï¿½tulo
 		setLayout(null); // Para poder posicionar los elementos en posiciones absolutas
 		setSize(600,420); // Tamaï¿½o de Frame
+=======
+		setTitle("Jugando a Serpientes y Escaleras"); // Título
+		setLayout(null); // Para poder posicionar los elementos en posiciones absolutas
+		setSize(600,420); // Tamaño de Frame
+>>>>>>> 89bb22150d3d853d79c003e7b100c6c1bb04d06c
 		setLocationRelativeTo(null); // Centrar la ventana
 		setResizable(false); // Evitar redimensionado
 	}

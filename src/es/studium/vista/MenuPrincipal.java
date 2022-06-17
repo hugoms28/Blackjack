@@ -3,8 +3,8 @@ package es.studium.vista;
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Frame;
-import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.Panel;
 
@@ -14,7 +14,10 @@ public class MenuPrincipal extends Frame
 	private static final long serialVersionUID =1L;
 	Label lblMenuPrincipal = new Label("Menú Principal", 1);
 	Panel pnlBotonera = new Panel();
+<<<<<<< HEAD
 	Panel pnlBotoneraSalir = new Panel();
+=======
+>>>>>>> 89bb22150d3d853d79c003e7b100c6c1bb04d06c
 	public Button btnPartidaNueva = new Button("Partida Nueva");
 	public Button btnTopTen = new Button("Top 10");
 	Button btnAyuda = new Button("Ayuda");
@@ -22,16 +25,15 @@ public class MenuPrincipal extends Frame
 	
 	public MenuPrincipal() {
 		setTitle("BlackJack");
-		setLayout(new BorderLayout());
 		setBackground(Color.RED);
-		pnlBotonera.setLayout(new GridLayout(4, 1));
+		setLayout(new BorderLayout());
+		pnlBotonera.setLayout(new FlowLayout(FlowLayout.CENTER,200,10) );
 		pnlBotonera.add(lblMenuPrincipal);
 		pnlBotonera.add(btnPartidaNueva);
 		pnlBotonera.add(btnTopTen);
-		pnlBotonera.add(btnAyuda);
-		add(pnlBotonera, "Center");
-		pnlBotoneraSalir.add(btnSalir);
-		add(pnlBotoneraSalir, "South");
+		pnlBotonera.add(btnAyuda); 		
+		pnlBotonera.add(btnSalir);
+		add(pnlBotonera, "Center"); 		
 		setSize(400, 200);
 		setLocationRelativeTo(null);
 		setResizable(false);

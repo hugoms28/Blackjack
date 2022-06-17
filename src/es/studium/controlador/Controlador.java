@@ -1,6 +1,5 @@
 package es.studium.controlador;
 
-import java.awt.Button;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -22,6 +21,7 @@ public class Controlador implements WindowListener, ActionListener, MouseListene
 	TopTen topTen = new TopTen();
 	PartidaNueva partidaNueva = new PartidaNueva();
 	Tablero tablero;
+	/*Tablero tablero;*/
 	Modelo modelo;
 	int numJugadores;	
 	int turno = 1;
@@ -39,7 +39,7 @@ public class Controlador implements WindowListener, ActionListener, MouseListene
 		topTen.btnVolver.addActionListener(this);
 		partidaNueva.pedirNumeroJugadores.addWindowListener(this);
 		partidaNueva.btnContinuar.addActionListener(this);
-		partidaNueva.pedirNombreJugadores.addWindowListener(this);
+		partidaNueva.pedirNombresJugadores.addWindowListener(this);
 		partidaNueva.btnComenzarPartida.addActionListener(this);
 
 	}
@@ -51,29 +51,70 @@ public class Controlador implements WindowListener, ActionListener, MouseListene
 		{
 			System.exit(0);
 		}
-		else if(botonPulsado.equals(menuPrincipal.btnTopTen)) //top ten
+		else if(botonPulsado.equals(menuPrincipal.btnTopTen)) // Top Ten
 		{
 			topTen.MostrarTopTen();
 			menuPrincipal.setVisible(false);
 		}
-		else if(botonPulsado.equals(topTen.btnVolver)) //top ten
+		else if(botonPulsado.equals(topTen.btnVolver)) // Top Ten
 		{
 			topTen.OcultarTopTen();
 			menuPrincipal.setVisible(true);
 		}
-		else if(botonPulsado.equals(menuPrincipal.btnPartidaNueva)) //Partida Nueva
+		else if(botonPulsado.equals(menuPrincipal.btnPartidaNueva)) // Partida Nueva
 		{
 			partidaNueva.MostrarDialogNumeroJugadores();
-			menuPrincipal.setVisible(false);
+			menuPrincipal.setVisible(true);
 		}
-		else if(botonPulsado.equals(partidaNueva.btnContinuar)) //Partida Nueva
+		else if(botonPulsado.equals(partidaNueva.btnContinuar)) // Partida Nueva
 		{
 			if(!partidaNueva.choNumeroJugadores.getSelectedItem().equals("Elegir número de jugadores..."))
 			{
-				partidaNueva.PrepararDialogNombresJugadores(Integer.parseInt(partidaNueva.choNumeroJugadores));
+				partidaNueva.PrepararDialogNombresJugadores(Integer.parseInt(partidaNueva.choNumeroJugadores.getSelectedItem()));
+			}else
+			{
+				System.out.println("Número no valido, elige otro");
+				partidaNueva.MostrarDialogNumeroJugadores();
 			}
 		}
-
+		else if(botonPulsado.equals(partidaNueva.btnComenzarPartida)) // Partida Nueva
+		{
+			numJugadores = Integer.parseInt(partidaNueva.choNumeroJugadores.getSelectedItem());
+			if((numJugadores==4)&&(!partidaNueva.txfNombre1.getText().equals(""))
+					&&(!partidaNueva.txfNombre2.getText().equals(""))
+					&&(!partidaNueva.txfNombre3.getText().equals(""))
+					&&(!partidaNueva.txfNombre4.getText().equals("")))
+			{
+				tablero = new Tablero(4, partidaNueva.txfNombre1.getText(),partidaNueva.txfNombre2.getText(),partidaNueva.txfNombre3.getText(),partidaNueva.txfNombre4.getText());
+				tablero.addWindowListener(this);
+				tablero.addMouseListener(this);
+				tablero.setVisible(true);
+				partidaNueva.setVisible(false);
+			}
+			else if((numJugadores==3)&&(!partidaNueva.txfNombre1.getText().equals(""))
+					&&(!partidaNueva.txfNombre2.getText().equals(""))
+					&&(!partidaNueva.txfNombre3.getText().equals("")))
+			{
+				tablero = new Tablero(3,partidaNueva.txfNombre1.getText(),partidaNueva.txfNombre2.getText(),partidaNueva.txfNombre3.getText(),"");
+				tablero.addWindowListener(this);
+				tablero.addMouseListener(this);
+				tablero.setVisible(true);
+				partidaNueva.setVisible(false);
+			}
+			else if((numJugadores==2)&&(!partidaNueva.txfNombre1.getText().equals(""))
+					&&(!partidaNueva.txfNombre2.getText().equals("")))
+			{
+				tablero = new Tablero(2, partidaNueva.txfNombre1.getText(),partidaNueva.txfNombre2.getText(),"","");
+				tablero.addWindowListener(this);
+				tablero.addMouseListener(this);
+				tablero.setVisible(true);
+				partidaNueva.setVisible(false);
+			}
+			else
+			{
+				partidaNueva.txfNombre1.requestFocus();
+			}
+		}
 	}
 
 	@Override
@@ -91,11 +132,21 @@ public class Controlador implements WindowListener, ActionListener, MouseListene
 		}
 		else if(partidaNueva.pedirNumeroJugadores.isActive())
 		{
+<<<<<<< HEAD
 			partidaNueva.pedirNumeroJugadores.removeWindowListener(this);
 			partidaNueva.btnContinuar.removeActionListener(this);
 			partidaNueva.choNumeroJugadores.select(0);
 			partidaNueva.removeAll();
 			partidaNueva.OcultarDialogNombresJugadores();
+=======
+			partidaNueva.setVisible(false);
+			menuPrincipal.setVisible(true);
+		}
+		else if(partidaNueva.pedirNombresJugadores.isActive())
+		{
+			partidaNueva.OcultarDialogNombresJugadores();
+			menuPrincipal.setVisible(true);
+>>>>>>> 89bb22150d3d853d79c003e7b100c6c1bb04d06c
 		}
 		else if((tablero!=null)&&(tablero.isActive()))
 		{
