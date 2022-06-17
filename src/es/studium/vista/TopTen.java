@@ -11,7 +11,7 @@ public class TopTen extends Frame
 {
 	private static final long serialVersionUID =1L;
 	TextArea txaRanking = new TextArea(20, 10);
-	Button btnVolver = new Button("Volver");
+	public Button btnVolver = new Button("Volver");
 	
 	public TopTen() {
 		setTitle("BlackJack: Ranking");

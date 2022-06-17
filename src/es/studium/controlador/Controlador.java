@@ -10,6 +10,8 @@ import java.awt.event.WindowListener;
 
 import es.studium.modelo.Modelo;
 import es.studium.vista.MenuPrincipal;
+import es.studium.vista.PartidaNueva;
+import es.studium.vista.Tablero;
 import es.studium.vista.TopTen;
 
 
@@ -93,14 +95,14 @@ public class Controlador implements WindowListener, ActionListener, MouseListene
 			partidaNueva.btnContinuar.removeActionListener(this);
 			partidaNueva.choNumeroJugadores.select(0);
 			partidaNueva.removeAll();
-			partidaNueva.OcultarDialogNombreJugadores();
+			partidaNueva.OcultarDialogNombresJugadores();
 		}
 		else if((tablero!=null)&&(tablero.isActive()))
 		{
 			tablero.removeWindowListener(this);
 			tablero.removeMouseListener(this);
 			tablero.setVisible(false);
-			partidaNueva.OcultarDialogNombreJugadores();
+			partidaNueva.OcultarDialogNombresJugadores();
 			menuPrincipal.setVisible(true);
 		}
 		else 

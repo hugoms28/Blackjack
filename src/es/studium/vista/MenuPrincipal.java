@@ -15,10 +15,10 @@ public class MenuPrincipal extends Frame
 	Label lblMenuPrincipal = new Label("Menú Principal", 1);
 	Panel pnlBotonera = new Panel();
 	Panel pnlBotoneraSalir = new Panel();
-	Button btnPartidaNueva = new Button("Partida Nueva");
-	Button btnTopTen = new Button("Top 10");
+	public Button btnPartidaNueva = new Button("Partida Nueva");
+	public Button btnTopTen = new Button("Top 10");
 	Button btnAyuda = new Button("Ayuda");
-	Button btnSalir = new Button("Salir");
+	public Button btnSalir = new Button("Salir");
 	
 	public MenuPrincipal() {
 		setTitle("BlackJack");
