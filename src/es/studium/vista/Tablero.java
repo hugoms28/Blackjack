@@ -17,9 +17,9 @@ public class Tablero extends Frame
 	String jugador1, jugador2, jugador3, jugador4;
 	int turnoJugador = 1;
 	int tirada = 0;
-	Font fuenteTirada = new Font("Jokerman", Font.BOLD, 24);
-	Font fuenteTurno = new Font("Jokerman", Font.BOLD, 24);
-	Font fuenteJugadores = new Font("Jokerman", Font.BOLD, 22);
+	Font fuenteTirada = new Font("Arial", Font.BOLD, 24);
+	Font fuenteTurno = new Font("Arial", Font.BOLD, 24);
+	Font fuenteJugadores = new Font("Arial", Font.BOLD, 22);
 	public Button btnVolver = new Button("Volver");
 
 	int xRoja=100, yRoja=380;
@@ -35,16 +35,13 @@ public class Tablero extends Frame
 		jugador3 = j3;
 		jugador4 = j4;
 		herramientas = getToolkit();
-		tablero = herramientas.getImage("tablero600x400.jpg");
-<<<<<<< HEAD
-		setTitle("Jugando a Serpientes y Escaleras"); // T�tulo
+		tablero = herramientas.getImage("tapete.jpg");
+		setTitle("Blackjack"); // Título
 		setLayout(null); // Para poder posicionar los elementos en posiciones absolutas
-		setSize(600,420); // Tama�o de Frame
-=======
-		setTitle("Jugando a Serpientes y Escaleras"); // T�tulo
+		setSize(600,420); // Tamaño de Frame
+		setTitle("Blackjack"); // Títulotulo
 		setLayout(null); // Para poder posicionar los elementos en posiciones absolutas
-		setSize(600,420); // Tama�o de Frame
->>>>>>> 89bb22150d3d853d79c003e7b100c6c1bb04d06c
+		setSize(600,420); // Tamaño de Frame
 		setLocationRelativeTo(null); // Centrar la ventana
 		setResizable(false); // Evitar redimensionado
 	}

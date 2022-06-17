@@ -14,13 +14,10 @@ public class MenuPrincipal extends Frame
 	private static final long serialVersionUID =1L;
 	Label lblMenuPrincipal = new Label("Menú Principal", 1);
 	Panel pnlBotonera = new Panel();
-<<<<<<< HEAD
 	Panel pnlBotoneraSalir = new Panel();
-=======
->>>>>>> 89bb22150d3d853d79c003e7b100c6c1bb04d06c
 	public Button btnPartidaNueva = new Button("Partida Nueva");
 	public Button btnTopTen = new Button("Top 10");
-	Button btnAyuda = new Button("Ayuda");
+	public Button btnAyuda = new Button("Ayuda");
 	public Button btnSalir = new Button("Salir");
 	
 	public MenuPrincipal() {

@@ -37,12 +37,7 @@ public class PartidaNueva extends Frame
 		pedirNumeroJugadores.setSize(240,200);
 		pedirNumeroJugadores.setLocationRelativeTo(null);
 		pedirNumeroJugadores.setResizable(false);
-		
-<<<<<<< HEAD
-		choNumeroJugadores.add("Elegir nÔøΩmero de jugadores...");
-=======
-		choNumeroJugadores.add("Elegir n˙mero de jugadores...");
->>>>>>> 89bb22150d3d853d79c003e7b100c6c1bb04d06c
+		choNumeroJugadores.add("Elegir n√∫mero de jugadores...");
 		choNumeroJugadores.add("2");
 		choNumeroJugadores.add("3");
 		choNumeroJugadores.add("4");
@@ -128,8 +123,8 @@ public class PartidaNueva extends Frame
 	{
 		pedirNombresJugadores.setVisible(false);
 	}
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> 89bb22150d3d853d79c003e7b100c6c1bb04d06c
+
+
+

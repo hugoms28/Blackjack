@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.IOException;
 
 import es.studium.modelo.Modelo;
 import es.studium.vista.MenuPrincipal;
@@ -49,6 +50,7 @@ public class Controlador implements WindowListener, ActionListener, MouseListene
 		Object botonPulsado = e.getSource();
 		if(botonPulsado.equals(menuPrincipal.btnSalir))
 		{
+			
 			System.exit(0);
 		}
 		else if(botonPulsado.equals(menuPrincipal.btnTopTen)) // Top Ten
@@ -110,7 +112,6 @@ public class Controlador implements WindowListener, ActionListener, MouseListene
 				tablero.setVisible(true);
 				partidaNueva.setVisible(false);
 			}
-			else
 			{
 				partidaNueva.txfNombre1.requestFocus();
 			}
@@ -132,13 +133,13 @@ public class Controlador implements WindowListener, ActionListener, MouseListene
 		}
 		else if(partidaNueva.pedirNumeroJugadores.isActive())
 		{
-<<<<<<< HEAD
+
 			partidaNueva.pedirNumeroJugadores.removeWindowListener(this);
 			partidaNueva.btnContinuar.removeActionListener(this);
 			partidaNueva.choNumeroJugadores.select(0);
 			partidaNueva.removeAll();
 			partidaNueva.OcultarDialogNombresJugadores();
-=======
+
 			partidaNueva.setVisible(false);
 			menuPrincipal.setVisible(true);
 		}
@@ -146,7 +147,7 @@ public class Controlador implements WindowListener, ActionListener, MouseListene
 		{
 			partidaNueva.OcultarDialogNombresJugadores();
 			menuPrincipal.setVisible(true);
->>>>>>> 89bb22150d3d853d79c003e7b100c6c1bb04d06c
+
 		}
 		else if((tablero!=null)&&(tablero.isActive()))
 		{
