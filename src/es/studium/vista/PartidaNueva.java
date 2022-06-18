@@ -15,18 +15,18 @@ public class PartidaNueva extends Frame
 	public Dialog pedirNumeroJugadores = new Dialog(this, "BlackJack: Nueva Partida", true);
 	public Dialog pedirNombresJugadores = new Dialog(this, "BlackJack: Nueva Partida", true);
 	int numeroJugadores = 0;
-	String[] nombresJugadores = null;
+	public String[] nombresJugadores = null;
 	public Choice choNumeroJugadores = new Choice();
 	public Button btnContinuar =new Button("Continuar...");
 	
 	public TextField txfNombre1 = new TextField(15);
-	Label lblEtiqueta1 = new Label("Jugador 1:");
+	public Label lblEtiqueta1 = new Label("Jugador 1:");
 	public TextField txfNombre2 = new TextField(15);
-	Label lblEtiqueta2 = new Label("Jugador 2:");
+	public Label lblEtiqueta2 = new Label("Jugador 2:");
 	public TextField txfNombre3 = new TextField(15);
-	Label lblEtiqueta3 = new Label("Jugador 3:");
+	public Label lblEtiqueta3 = new Label("Jugador 3:");
 	public TextField txfNombre4 = new TextField(15);
-	Label lblEtiqueta4 = new Label("Jugador 4:");
+	public Label lblEtiqueta4 = new Label("Jugador 4:");
 	public Button btnComenzarPartida = new Button("Comenzar Partida");
 	public Object pedirNombreJugadores;
 	
